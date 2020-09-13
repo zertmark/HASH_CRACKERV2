@@ -70,6 +70,7 @@ class CrackEncryption():
     with open(self.wordlist, errors='ignore') as file:
         return sum(chunk.count('\n')
                    for chunk in iter(lambda: file.read(chunk_size), ''))
+
 class Parser():
   def __init__(self):
      import argparse
@@ -82,17 +83,17 @@ class Parser():
      self.hash_type=self.args.hash
      self.path_to_hash=self.args.file
      self.wordlist=self.args.wordlist
+
   def read_hash(self):
     import os 
-    output=""
     with open(self.path_to_hash,'r') as file:
-      output=file.read()
-    if output !="":
+      self.hash=file.read()
+    if self.hash !="":
       print("Found hash:{}".format(output))
-      self.hash=output
     else:
       print("Error(hash isn't found in {} file). Check file {}(there should be only hash)".format(self.path_to_hash))
       exit()
+      
 if __name__=="__main__":
  parser=Parser()
  parser.read_hash()
