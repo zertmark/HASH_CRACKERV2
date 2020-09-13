@@ -89,7 +89,7 @@ class Parser():
     with open(self.path_to_hash,'r') as file:
       self.hash=file.read()
     if self.hash !="":
-      print("Found hash:{}".format(output))
+      print("Found hash:{}".format(self.hash))
     else:
       print("Error(hash isn't found in {} file). Check file {}(there should be only hash)".format(self.path_to_hash))
       exit()
